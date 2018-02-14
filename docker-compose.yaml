@@ -11,7 +11,7 @@ services:
       - ./src:/src
       - ./config/nginx:/etc/nginx/conf.d
     depends_on:
-      - web
+      - nginx2
   db:
     image: mysql
     restart: always
@@ -35,3 +35,9 @@ services:
       - "8000"
     depends_on:
       - db
+  nginx2:
+    image: nginx:latest
+    container_name: nginx2
+    restart: always
+    depends_on:
+      - web
