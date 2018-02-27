@@ -1,2 +1,6 @@
 Django==2.0.2
 pytz==2018.3
+djangorestframework
+rest_framework_swagger
+django-rest-raml
+raml_codec
