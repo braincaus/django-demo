@@ -35,9 +35,9 @@ services:
       - "8000"
     depends_on:
       - db
-  nginx2:
-    image: nginx:latest
-    container_name: nginx2
-    restart: always
-    depends_on:
-      - web
+  # nginx2:
+    # image: nginx:latest
+    # container_name: nginx2
+    # restart: always
+    # depends_on:
+      # - web
