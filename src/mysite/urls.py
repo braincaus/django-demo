@@ -17,27 +17,27 @@ from django.conf.urls import url, include
 from rest_framework import routers
 from django.contrib import admin
 from rest_framework.authtoken import views as views_authtoken
-from rest_framework.schemas import get_schema_view
-from rest_framework_raml.renderers import RAMLRenderer, RAMLDocsRenderer
-from rest_framework_swagger.views import get_swagger_view
+# from rest_framework.schemas import get_schema_view
+# from rest_framework_raml.renderers import RAMLRenderer, RAMLDocsRenderer
+# from rest_framework_swagger.views import get_swagger_view
 from api import views
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'news', views.NewViewSet)
 
-swagger_view = get_swagger_view(title='Pastebin API')
+# swagger_view = get_swagger_view(title='Pastebin API')
 
-raml_view = get_schema_view(
-    title='Example API',
-    renderer_classes=[RAMLRenderer, RAMLDocsRenderer]
-)
+# raml_view = get_schema_view(
+#     title='Example API',
+#     renderer_classes=[RAMLRenderer, RAMLDocsRenderer]
+# )
 
 urlpatterns = [
     url(r'^api/', include(router.urls)),
     url(r'^token-login/', views_authtoken.obtain_auth_token),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^admin/', admin.site.urls),
-    url(r'^swagger/$', swagger_view),
-    url(r'^raml/$', raml_view)
+    # url(r'^swagger/$', swagger_view),
+    # url(r'^raml/$', raml_view)
 ]
