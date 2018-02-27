@@ -11,7 +11,7 @@ services:
       - ./src:/src
       - ./config/nginx:/etc/nginx/conf.d
     depends_on:
-      - nginx2
+      - web
   db:
     image: mysql
     restart: always
