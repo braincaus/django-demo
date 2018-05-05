@@ -17,13 +17,12 @@ from django.conf.urls import url, include
 from rest_framework import routers
 from django.contrib import admin
 from rest_framework.authtoken import views as views_authtoken
-from rest_framework.schemas import get_schema_view
-from rest_framework_raml.renderers import RAMLRenderer, RAMLDocsRenderer
-from rest_framework_swagger.views import get_swagger_view
+# from rest_framework.schemas import get_schema_view
+# from rest_framework_raml.renderers import RAMLRenderer, RAMLDocsRenderer
+# from rest_framework_swagger.views import get_swagger_view
+from api import views
 
 urlpatterns = [
-    url(r'^api/', include('api.urls')),
-    url(r'^token-login/', views_authtoken.obtain_auth_token),
-    url(r'^api-auth/', include('rest_framework.urls')),
-    url(r'^admin/', admin.site.urls),
+    url(r'^users/', views.UserViewSet),
+    url(r'^news/', views.NewViewSet),
 ]
